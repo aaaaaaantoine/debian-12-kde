@@ -15,7 +15,7 @@ echo "deb http:// $(lsb_release -cs)-backports main contrib non-free non-free-fi
 
 **Vérifie que le système est bien à jour**
 
-Important par la suite, j'en ai besoin pour une application en ligne de commande.
+Important par la suite, j'en ai besoin pour une application en ligne de commande qui dépend du dépôt Backports.
 ```
 apt update && apt full-upgrade -y
 ```
@@ -29,17 +29,17 @@ apt install kde-plasma-desktop -y
 
 **Installation des KDE Applications**
 ```
-akregator
-ark
-calligra
-dolphin
-dragonplayer
-elisa
-falkon
-gwenview
-kaddressbook
-kcalc
-kdepim-addons
+akregator     # Lecteur de flux RSS
+ark           # L'archiveur de KDE
+calligra      # Suite Office de KDE, alternative Libre Office
+dolphin       # Gestionnaire de fichiers de KDE
+dragonplayer  # Lecteur vidéo qui peut aussi jouer de la musique 
+elisa         # Lecteur de musique
+falkon        # Navigateur internet écrit en Qt, alternative Firefox, Konqueror, Google Chrome
+gwenview      # La visionneuse d'images de KDE 
+kaddressbook  #
+kcalc         # La calculatrice KDE 
+kdepim-addons #
 kdenlive
 kdeconnect
 kid3
