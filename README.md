@@ -21,6 +21,7 @@ apt update && apt full-upgrade -y
 ```
 
 **Installation KDE en version Minimale**
+
 ```
 apt install kde-plasma-desktop -y
 ```
@@ -28,6 +29,7 @@ apt install kde-plasma-desktop -y
 À l'inverse si on souhaite un KDE très complet `kde-full`
 
 **Installation des KDE Applications**
+
 ```
 akregator     # Lecteur de flux RSS
 ark           # L'archiveur de KDE
@@ -81,11 +83,15 @@ Application très connue et super facile à prendre en main qui permet de créer
 ```
 wget https://www.virtualbox.org/download/oracle_vbox_2016.asc
 gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor oracle_vbox_2016.asc
+
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" > /etc/apt/sources.list.d/virtualbox.list
+
 apt update && apt full-upgrade -y
 apt install virtualbox-7.1 -y
 #apt install virtualbox-guest-utils -y
+
 gpasswd -a antoine vboxusers
+
 wget https://download.virtualbox.org/virtualbox/$vboxver/Oracle_VM_VirtualBox_Extension_Pack-$vboxver.vbox-extpack
 VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-$vboxver.vbox-extpack
 ```
