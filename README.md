@@ -1,6 +1,11 @@
 <img src="./logo.png" />
 
-Script d'installation KDE Plasma personnalisé pour Debian 12 Bookworm 
+Script d'installation KDE Plasma personnalisé pour Debian 12 Bookworm
+
+**Important**
+
+1. Ce script est conçu pour être lancer avec root
+2. Une fois le script terminé, redémarrez
 
 ## Les actions du script
 
