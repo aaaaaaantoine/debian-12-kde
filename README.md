@@ -1,8 +1,8 @@
 <img src="./logo.png" />
 
-Script post installation de Debian 12 Bookworm avec KDE Plasma personnalisé
+Script d'installation KDE Plasma personnalisé pour Debian 12 Bookworm 
 
-## Téléchargement :
+## Téléchargement depuis un terminal :
 ```
 wget https://github.com/aaaaaaantoine/debian-kde/blob/main/debian-kde.sh
 ```
