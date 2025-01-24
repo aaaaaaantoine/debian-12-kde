@@ -1,6 +1,6 @@
 <img src="./logo.png" />
 
-Script d'installation KDE Plasma personnalisé pour Debian 12 Bookworm
+Debian 12 KDE Plasma Custom
 
 **Important**
 
