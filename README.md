@@ -1,3 +1,3 @@
-<img src="./logo.jpg" />
+<img src="./logo.png" />
 
 Script de Debian 12 Bookworm
