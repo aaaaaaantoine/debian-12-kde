@@ -30,6 +30,7 @@ apt install kde-plasma-desktop -y
 
 **Installation des KDE Applications**
 
+Ici je n'ai choisi que des applications qui s'intègrent bien à KDE. Beaucoup sont briques de KDE, quant aux autres elles sont écrites en Qt.
 ```
 akregator     # Lecteur de flux RSS
 ark           # L'archiveur de fichiers/Dossiers
@@ -70,7 +71,7 @@ Kodi est médiacenter très connu, alternative Emby.
 apt install kodi -y
 ```
 
-**La fameuse application en ligne de commande**
+**Ma fameuse application CLI qui a besoin de Debian Backports**
 ```
 apt install yt-dlp -t bookworm-backports -y
 ```
@@ -78,7 +79,7 @@ le `-t bookworm-backports` indique que je souhaite l'installer de le dépôt bac
 
 **VirtualBox**
 
-Application très connue et super facile à prendre en main qui permet de créer et gérer des machines virtuelles.
+Application très connue et super facile à prendre en main qui permet de créer et gérer ses machines virtuelles.
 
 ```
 wget https://www.virtualbox.org/download/oracle_vbox_2016.asc
