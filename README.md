@@ -32,25 +32,25 @@ apt install kde-plasma-desktop -y
 
 ```
 akregator     # Lecteur de flux RSS
-ark           # L'archiveur de KDE
-calligra      # Suite Office de KDE, alternative Libre Office
+ark           # L'archiveur de fichiers/Dossiers
+calligra      # Suite Bureautique
 dolphin       # Gestionnaire de fichiers de KDE
 dragonplayer  # Lecteur vidéo qui peut aussi jouer de la musique 
-elisa         # Lecteur de musique
-falkon        # Navigateur internet écrit en Qt, alternative Firefox, Konqueror, Google Chrome
-gwenview      # La visionneuse d'images de KDE 
+elisa         # Lecteur de musique, c'est le remplaçant de Amarok
+falkon        # Navigateur internet écrit en Qt, alternative Konqueror
+gwenview      # La visionneuse d'images
 kaddressbook  #
-kcalc         # La calculatrice KDE 
+kcalc         # La calculatrice
 kdepim-addons #
-kdenlive
-kdeconnect
-kid3
-kmail
-konsole
-kontact
-konversation
-korganizer
-krita
+kdenlive      #
+kdeconnect    #
+kid3          # Éditeur de Tag audio
+kmail         # Gestionnaire de courrier électronique
+konsole       # Terminal KDE
+kontact       # Gestionnaire de contact
+konversation  # Client IRC
+korganizer    # Agenda KDE
+krita         # L'éditeur d'images de KDE
 ksystemlog
 ktorrent
 kwalletmanager
