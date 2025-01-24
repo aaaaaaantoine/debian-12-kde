@@ -2,99 +2,25 @@
 
 Script d'installation KDE Plasma personnalisé pour Debian 12 Bookworm 
 
-## Téléchargement depuis un terminal :
+**Télécharger depuis un terminal** :
 ```
 wget https://github.com/aaaaaaantoine/debian-kde/blob/main/debian-kde.sh
 ```
-## Le script en détails ?
+## Les actions du script
 
-**Ajout du dépôt Backports**
-```
-echo "deb http:// $(lsb_release -cs)-backports main contrib non-free non-free-firmware" | tee -a /etc/apt/sources.list
-```
+- Ajout du dépôt Backports à `/etc/apt/sources.list`
+- Met à jour les dépôts et vérifie que le système est bien à jour
 
-**Vérifie que le système est bien à jour**
+- Installe une version Minimale de KDE 
+  - Installe tout un tas d'applications propre à KDE 
+  - Installe Kodi Media Center
+  - Installe le paquet yt-dlp depuis le dépôt backports
 
-Important par la suite, j'en ai besoin pour une application en ligne de commande qui dépend du dépôt Backports.
-```
-apt update && apt full-upgrade -y
-```
+- Installe VirtualBox depuis le dépôt officiel d'Oracle
+  - Vérification des clés gpg
+  - Ajout de virtualbox à `/etc/apt/sources.list.d/virtualbox.list`
+  - Rafraîchi à nouveau les dépôts
+  - Installe VirtualBox 7.1
+  - Ajoute l'utilisateur antoine au groupe vboxuser
 
-**Installation KDE en version Minimale**
-
-```
-apt install kde-plasma-desktop -y
-```
-
-À l'inverse si on souhaite un KDE très complet `kde-full`
-
-**Installation des KDE Applications**
-
-Ici je n'ai choisi que des applications qui s'intègrent bien à KDE. Beaucoup sont briques de KDE, quant aux autres elles sont écrites en Qt.
-```
-akregator     # Lecteur de flux RSS
-ark           # L'archiveur de fichiers/Dossiers
-calligra      # Suite Bureautique
-dolphin       # Gestionnaire de fichiers de KDE
-dragonplayer  # Lecteur vidéo qui peut aussi jouer de la musique 
-elisa         # Lecteur de musique, c'est le remplaçant de Amarok
-falkon        # Navigateur internet écrit en Qt, alternative Konqueror
-gwenview      # La visionneuse d'images
-kaddressbook  #
-kcalc         # La calculatrice
-kdepim-addons #
-kdenlive      #
-kdeconnect    #
-kid3          # Éditeur de Tag audio
-kmail         # Gestionnaire de courrier électronique
-konsole       # Terminal KDE
-kontact       # Gestionnaire de contact
-konversation  # Client IRC
-korganizer    # Agenda KDE
-krita         # L'éditeur d'images de KDE
-ksystemlog
-ktorrent
-kwalletmanager
-kwave
-kwrite
-okular
-plasma-vault
-partitionmanager
-kdespectacle
-yakuake
-```
-
-**Kodi Media Center**
-
-Kodi est médiacenter très connu, alternative Emby.
-```
-apt install kodi -y
-```
-
-**Ma fameuse application CLI qui a besoin de Debian Backports**
-```
-apt install yt-dlp -t bookworm-backports -y
-```
-le `-t bookworm-backports` indique que je souhaite l'installer de le dépôt backports.
-
-**VirtualBox**
-
-Application très connue et super facile à prendre en main qui permet de créer et gérer ses machines virtuelles.
-
-```
-wget https://www.virtualbox.org/download/oracle_vbox_2016.asc
-gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor oracle_vbox_2016.asc
-
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" > /etc/apt/sources.list.d/virtualbox.list
-
-apt update && apt full-upgrade -y
-apt install virtualbox-7.1 -y
-#apt install virtualbox-guest-utils -y
-
-gpasswd -a antoine vboxusers
-
-wget https://download.virtualbox.org/virtualbox/$vboxver/Oracle_VM_VirtualBox_Extension_Pack-$vboxver.vbox-extpack
-VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-$vboxver.vbox-extpack
-```
-
-Décommenter `apt install virtualbox-guest-utils -y` si vous êtes en machine virtuelle.
+**info** : Décommenter `apt install virtualbox-guest-utils -y` dans la section VirtualBox, si vous êtes en machine virtuelle pour avoir addictions invités activer (redémarrage du système requis).
