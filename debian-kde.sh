@@ -14,7 +14,7 @@ apt update && apt full-upgrade -y
 apt install kde-plasma-desktop -y
 
 ## KDE Applications
-apt install akregator ark calligra calligra-gemini calligraplan calligrasheets calligrastage calligrawords dolphin dragonplayer elisa falkon gwenview kaddressbook karbon kcalc kdepim-addons kdenlive kdeconnect kid3 kmail konsole kontact konversation korganizer krita ksystemlog ktorrent kwalletmanager kwave kwrite okular partitionmanager plasma-firewall plasma-vault print-manager kde-spectacle yakuake -y
+apt install akregator ark calligra calligra-gemini calligraplan calligrasheets calligrastage calligrawords dolphin dragonplayer elisa falkon gwenview kaccounts-integration kaccounts-providers kaddressbook karbon kcalc kdepim-addons kdenlive kdeconnect kde-telepathy-kaccounts kid3 kmail konsole kontact konversation korganizer krita ksystemlog ktorrent kwalletmanager kwave kwrite okular partitionmanager plasma-firewall plasma-vault print-manager kde-spectacle yakuake -y
 
 ## Kodi Media Center
 apt install kodi -y
