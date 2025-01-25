@@ -3,9 +3,8 @@
 Debian 12 KDE Plasma Custom
 
 **Important**
-
-1. Ce script doit être lancé avec **root**
-2. Une fois le script terminé, redémarrez
+- Ce script doit être lancé avec **root**
+- Une fois le script terminé, redémarrez
 
 ## Opérations réalisées par le script
 
