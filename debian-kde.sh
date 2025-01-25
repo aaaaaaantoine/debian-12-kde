@@ -24,12 +24,10 @@ sudo apt install bash-completion vim wget -y
 sudo apt install yt-dlp -t bookworm-backports -y
 
 ## VirtualBox
-wget https://www.virtualbox.org/download/oracle_vbox_2016.asc
-sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor oracle_vbox_2016.asc
-sudo echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" > /etc/apt/sources.list.d/virtualbox.list
-sudo apt update && sudo apt full-upgrade -y
-sudo apt install virtualbox-7.1 -y
+sudo apt install fasttrack-archive-keyring -y
+sudo echo "deb http://fasttrack.debian.net/debian-fasttrack/ $(lsb_release -cs)-fasttrack main contrib" | sudo tee /etc/apt/sources.list.d/fasttrack.list
+sudo echo "deb http://fasttrack.debian.net/debian-fasttrack/ $(lsb_release -cs)-backports-staging main contrib" | sudo tee -a /etc/apt/sources.list.d/fasttrack.list
+sudo apt update
+sudo apt install virtualbox virtualbox-ext-pack -y
 sudo gpasswd -a antoine vboxusers
-wget https://download.virtualbox.org/virtualbox/$vboxver/Oracle_VM_VirtualBox_Extension_Pack-$vboxver.vbox-extpack
-sudo VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-$vboxver.vbox-extpack
 #sudo sudo apt install virtualbox-guest-utils -y
