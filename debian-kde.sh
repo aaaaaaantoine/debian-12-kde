@@ -4,6 +4,7 @@
 
 ## Backports
 echo "deb http:// $(lsb_release -cs)-backports main contrib non-free non-free-firmware" | tee -a /etc/apt/sources.list
+echo "deb-src http:// $(lsb_release -cs)-backports main contrib non-free non-free-firmware" | tee -a /etc/apt/sources.list
 
 ## MAJ
 apt update && apt full-upgrade -y
