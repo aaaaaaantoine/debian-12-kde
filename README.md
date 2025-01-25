@@ -32,6 +32,6 @@ wget https://github.com/aaaaaaantoine/debian-kde/blob/main/debian-kde.sh
 ```
 
 Sources :
-- [Debian backports-bookworm]()
+- [Debian Backports]()
 - [Debian KDE]()
 - [VirtualBox]()
