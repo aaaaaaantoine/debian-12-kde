@@ -20,7 +20,7 @@ apt install akregator ark calligra calligra-gemini calligraplan calligrasheets c
 apt install kodi -y
 
 ## CLI
-apt install bash-completion ufw vim wget -y
+apt install bash-completion vim wget -y
 apt install yt-dlp -t bookworm-backports -y
 
 ## VirtualBox
