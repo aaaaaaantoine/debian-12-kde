@@ -14,7 +14,7 @@ sudo apt update && sudo apt full-upgrade -y
 sudo apt install kde-plasma-desktop -y
 
 ## KDE Applications
-sudo apt install akregator ark calligra calligra-gemini calligraplan calligrasheets calligrastage calligrawords dolphin dragonplayer elisa falkon gwenview kaddressbook karbon kcalc kdepim-addons kdenlive kdeconnect kid3 kmail konsole kontact konversation korganizer krita ksystemlog ktorrent kwalletmanager kwave kwrite okular plasma-vault partitionmanager kde-spectacle yakuake -y
+sudo apt install akregator ark calligra calligra-gemini calligraplan calligrasheets calligrastage calligrawords dolphin dragonplayer elisa falkon gwenview kaddressbook karbon kcalc kdepim-addons kdenlive kdeconnect kid3 kmail konsole kontact konversation korganizer krita ksystemlog ktorrent kwalletmanager kwave kwrite okular partitionmanager plasma-firewall plasma-vault print-manager kde-spectacle yakuake -y
 
 ## Kodi Media Center
 sudo apt install kodi -y
@@ -28,6 +28,7 @@ sudo apt install fasttrack-archive-keyring -y
 sudo echo "deb http://fasttrack.debian.net/debian-fasttrack/ $(lsb_release -cs)-fasttrack main contrib" | sudo tee /etc/apt/sources.list.d/fasttrack.list
 sudo echo "deb http://fasttrack.debian.net/debian-fasttrack/ $(lsb_release -cs)-backports-staging main contrib" | sudo tee -a /etc/apt/sources.list.d/fasttrack.list
 sudo apt update
-sudo apt install virtualbox virtualbox-ext-pack -y
+sudo apt install virtualbox -y
 sudo gpasswd -a antoine vboxusers
+#sudo apt install virtualbox-ext-pack -y
 #sudo sudo apt install virtualbox-guest-utils -y
