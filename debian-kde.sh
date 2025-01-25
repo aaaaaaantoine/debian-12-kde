@@ -3,8 +3,8 @@
 # Script d'installation personnalisé de Debian 12 Bookworm avec KDE Plasma
 
 ## Backports
-echo "deb http://deb.debian.org/debian $(lsb_release -cs)-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list
-echo "deb-src http://deb.debian.org/debian $(lsb_release -cs)-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list
+echo "deb http://deb.debian.org/debian bookworm-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list
+echo "deb-src http://deb.debian.org/debian bookworm-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list
 
 ## MAJ
 apt update && apt full-upgrade -y
