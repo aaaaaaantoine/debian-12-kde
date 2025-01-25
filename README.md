@@ -8,7 +8,7 @@ Debian 12 KDE Plasma Custom
 
 **Téléchager le script**
 ```
-wget https://github.com/aaaaaaantoine/debian-kde/blob/main/debian-kde.sh
+git clone https://github.com/aaaaaaantoine/debian-kde.git
 ```
 
 ## Opérations réalisées par le script
