@@ -19,7 +19,7 @@ git clone https://github.com/aaaaaaantoine/debian-kde.git
 4. Installe tout un tas d'applications propre à KDE (selon mes besoins)
 5. Installe Kodi Media Center
 6. Installe le paquet yt-dlp depuis le dépôt backports
-7. Installe VirtualBox depuis le dépôt officiel d'Oracle
+7. Installe VirtualBox depuis le dépôt `fasttrack`
 8. Importante et vérification des clés gpg
 9. Ajout de virtualbox à `/etc/apt/sources.list.d/virtualbox.list`
 10. Rafraîchi à nouveau les dépôts
