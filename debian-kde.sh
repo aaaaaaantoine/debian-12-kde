@@ -3,8 +3,8 @@
 # Script d'installation personnalisé de Debian 12 Bookworm avec KDE Plasma
 
 ## Backports
-echo "deb http:// $(lsb_release -cs)-backports main contrib non-free non-free-firmware" | tee -a /etc/apt/sources.list
-echo "deb-src http:// $(lsb_release -cs)-backports main contrib non-free non-free-firmware" | tee -a /etc/apt/sources.list
+echo "deb http://deb.debian.org/debian $(lsb_release -cs)-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list
+echo "deb-src http://deb.debian.org/debian $(lsb_release -cs)-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list
 
 ## MAJ
 apt update && apt full-upgrade -y
@@ -13,7 +13,7 @@ apt update && apt full-upgrade -y
 apt install kde-plasma-desktop -y
 
 ## KDE Applications
-apt install akregator ark calligra dolphin dragonplayer elisa falkon gwenview kaddressbook kcalc kdepim-addons kdenlive kdeconnect kid3 kmail konsole kontact konversation korganizer krita ksystemlog ktorrent kwalletmanager kwave kwrite okular plasma-vault partitionmanager kdespectacle yakuake -y
+apt install akregator ark calligra calligra-gemini calligraplan calligrasheets calligrastage calligrawords dolphin dragonplayer elisa falkon gwenview kaddressbook karbon kcalc kdepim-addons kdenlive kdeconnect kid3 kmail konsole kontact konversation korganizer krita ksystemlog ktorrent kwalletmanager kwave kwrite okular plasma-vault partitionmanager kde-spectacle yakuake -y
 
 ## Kodi Media Center
 apt install kodi -y
