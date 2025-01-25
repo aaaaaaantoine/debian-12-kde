@@ -6,6 +6,11 @@ Debian 12 KDE Plasma Custom
 - Ce script doit être lancé avec **root**
 - Une fois le script terminé, redémarrez
 
+**Téléchager le script**
+```
+wget https://github.com/aaaaaaantoine/debian-kde/blob/main/debian-kde.sh
+```
+
 ## Opérations réalisées par le script
 
 1. Ajout du dépôt Backports à `/etc/apt/sources.list`
