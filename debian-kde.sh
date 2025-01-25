@@ -27,7 +27,7 @@ gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor orac
 echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" > /etc/apt/sources.list.d/virtualbox.list
 apt update && apt full-upgrade -y
 apt install virtualbox-7.1 -y
-#apt install virtualbox-guest-utils -y
 gpasswd -a antoine vboxusers
 wget https://download.virtualbox.org/virtualbox/$vboxver/Oracle_VM_VirtualBox_Extension_Pack-$vboxver.vbox-extpack
 VBoxManage extpack install Oracle_VM_VirtualBox_Extension_Pack-$vboxver.vbox-extpack
+#apt install virtualbox-guest-utils -y
