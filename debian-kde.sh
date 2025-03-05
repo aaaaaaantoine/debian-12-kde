@@ -30,3 +30,9 @@ apt install virtualbox -y
 gpasswd -a antoine vboxusers
 #apt install virtualbox-ext-pack -y
 #apt install virtualbox-guest-utils -y
+
+## PureVPN (snap)
+#sudo apt update
+#sudo apt install snapd -y
+#sudo snap install snapd -y
+#sudo snap install purevpn -y
