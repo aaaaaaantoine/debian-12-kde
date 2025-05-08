@@ -15,6 +15,7 @@ Ou bien, installez Debian sans mot de passe root et cette étape ne devrait pas 
 
 Téléchargez ensuite le script et rendez-le exécutable :
 
+
 ```
 wget https://raw.githubusercontent.com/aaaaaaantoine/debian/master/debian-kde.sh
 chmod 755 debian-kde.sh
@@ -23,4 +24,6 @@ chmod 755 debian-kde.sh
 
 ## Versions
 
-Outre la version bureau KDE Plasma (Workstation), [ce script](https://github.com/aaaaaaantoine/debian/blob/main/debian-server) permet d'installer un serveur Debian. Ce dernier ne propose aucune application graphique, mais dispose d'un serveur SSH pour l'administration à distance.
+Outre la version bureau KDE, [ce script](https://github.com/aaaaaaantoine/debian/blob/main/debian-server) permet d'installer un serveur Debian avec des utilitaires de base. Ce dernier ne propose aucune application graphique, mais dispose d'un serveur SSH pour l'administration à distance. 
+
+Mais [ce tutoriel](https://github.com/aaaaaaantoine/debian-nextcloud) vous explique comment mettre en place un serveur Nextcloud sous Debian 12 facilement et rapidement.
