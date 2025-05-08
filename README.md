@@ -23,4 +23,4 @@ chmod 755 debian-workstation.sh
 
 ## Versions
 
-Outre la version bureau KDE Plasma, ce script permet d'installer un serveur Debian. Ce dernier ne propose aucune application graphique, mais dispose d'un serveur SSH pour l'administration à distance.
+Outre la version bureau KDE Plasma (Workstation), [ce script](https://github.com/aaaaaaantoine/debian/blob/main/debian-server) permet d'installer un serveur Debian. Ce dernier ne propose aucune application graphique, mais dispose d'un serveur SSH pour l'administration à distance.
