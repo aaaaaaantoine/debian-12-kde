@@ -29,6 +29,7 @@ calligrawords \
 dolphin \
 dragonplayer \
 elisa \
+falkon \
 gwenview \
 kaddressbook \
 karbon \
