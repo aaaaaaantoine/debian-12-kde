@@ -61,7 +61,13 @@ yakuake
 sudo apt install kodi -y
 
 # Utilitaires en ligne de commande
-sudo apt install bash-completion vim wget -y
+sudo apt install -y\
+bash-completion \
+ufw \
+vim \
+wget
+
+# Installation du script Youtube-dl depuis le dépôt Backpors
 sudo apt install yt-dlp -t bookworm-backports -y
 
 # Installation de VirtualBox
