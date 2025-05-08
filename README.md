@@ -1,29 +1,40 @@
 <img src="./logo.png" />
 
-Debian 12 KDE Plasma Custom
+## Debian 12 KDE Plasma Personnalisée
 
-**Important**
-- Ce script doit être lancé avec **root**
-- Une fois le script terminé, redémarrez
+*Ici, je pars d'une installation minimale de Debian 12 Bookworm en "mode" serveur (càd sans interface graphique), pour ensuite installer de dont j'ai uniquement besoin.*
 
-**Téléchager le script**
+1. Mettre le système à jour
 ```
-git clone https://github.com/aaaaaaantoine/debian-kde.git
+sudo apt update && sudo apt full-upgrade -y
 ```
 
-## Opérations réalisées par le script
+2. Ajout du dépôt Backports
+```
+sudo echo "deb http://deb.debian.org/debian bookworm-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list && sudo echo "deb-src http://deb.debian.org/debian bookworm-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list
+```
 
-1. Ajout du dépôt Backports à `/etc/apt/sources.list`
-2. Met à jour les dépôts et vérifie que le système est bien à jour
-3. Installe une version Minimale de KDE
-4. Installe tout un tas d'applications propre à KDE (selon mes besoins)
-5. Installe lepare-feu FirewallD
-6. Installe Kodi Media Center
-7. Installe le paquet yt-dlp depuis le dépôt backports
-8. Installe VirtualBox depuis le dépôt `fasttrack`
-9. Importante et vérification des clés gpg
-10. Ajout de virtualbox à `/etc/apt/sources.list.d/virtualbox.list`
-11. Rafraîchi à nouveau les dépôts
-12. Installe VirtualBox 7.1
+3. Mise à jour des dépôts logiciel
+```
+sudo apt update
+```
 
-**info** : Décommenter `apt install virtualbox-guest-utils -y` dans la section VirtualBox, si vous êtes en machine virtuelle pour avoir addictions invités activer (redémarrage du système requis).
+4. Installation KDE Minimale
+```
+sudo apt install kde-plasma-desktop -y
+```
+
+5. Installation des KDE Application
+```
+sudo apt install akregator ark calligra calligraplan dolphin dragonplayer elisa firefox-esr firefox-esr-l10n-fr gwenview kaddressbook karbon kcalc kdepim-addons kdenlive kdeconnect kde-spectacle kid3 kmail konsole kontact konversation korganizer krita ksystemlog ktorrent kwalletmanager kwave kwrite okular partitionmanager plasma-discover-backend-flatpak plasma-firewall plasma-vault yakuake -y
+```
+
+6. Kodi Media Center
+```
+sudo apt install kodi -y
+```
+
+7. Quelques logiciels en ligne de commande
+```
+sudo apt install bash-completion ufw vim wget -y
+```
