@@ -39,7 +39,6 @@ kdeconnect \
 kde-spectacle \
 kid3 \
 kmail \
-konqueror \
 konsole \
 kontact \
 konversation \
@@ -52,7 +51,6 @@ kwave \
 kwrite \
 okular \
 partitionmanager \
-plasma-discover-backend-flatpak \
 plasma-firewall \
 plasma-vault \
 yakuake
