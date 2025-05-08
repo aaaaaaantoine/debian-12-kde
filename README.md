@@ -16,9 +16,9 @@ Ou bien, installez Debian sans mot de passe root et cette étape ne devrait pas 
 Téléchargez ensuite le script et rendez-le exécutable :
 
 ```
-wget https://raw.githubusercontent.com/aaaaaaantoine/debian/master/debian-workstation.sh
-chmod 755 debian-workstation.sh
-./debian-workstation.sh
+wget https://raw.githubusercontent.com/aaaaaaantoine/debian/master/debian-kde.sh
+chmod 755 debian-kde.sh
+./debian-kde.sh
 ```
 
 ## Versions
