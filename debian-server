@@ -16,11 +16,17 @@ sudo apt full-upgrade -y
 # Mes utilitaires
 sudo apt install -y \
 bash-completion \
+btrfsprogs \
+curl \
+git \
+lvm2 \
 mdadm \
+nfs-kernel-server \
 openssh-server \
+samba \
 ufw \
 vim \
 wget \
-xfs-progs
+xfsprogs
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
