@@ -42,6 +42,7 @@ calligraplan \
 calligrasheets \
 calligrastage \
 calligrawords \
+digikam \
 elisa \
 kcolorchooser \
 kdepim-addons \
