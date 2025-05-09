@@ -16,7 +16,7 @@ sudo apt full-upgrade -y
 # Mes utilitaires
 sudo apt install -y \
 bash-completion \
-btrfsprogs \
+btrfs-progs \
 curl \
 git \
 lvm2 \
