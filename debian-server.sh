@@ -25,8 +25,4 @@ ufw \
 vim \
 xfsprogs
 
-# Cockpit WebUI
-#sudo apt install -y cockpit
-#sudo systemctl enable --now cockpit.socket
-
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
