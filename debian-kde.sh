@@ -22,8 +22,8 @@ sweeper \
 xterm
 
 # Ajout du dépôt Backports
-echo "deb http://deb.debian.org/debian bookworm-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list
-echo "deb-src http://deb.debian.org/debian bookworm-backports main contrib non-free-firmware" | tee -a /etc/apt/sources.list
+sudo echo "deb http://deb.debian.org/debian bookworm-backports main contrib non-free-firmware" | sudo tee -a /etc/apt/sources.list
+sudo echo "deb-src http://deb.debian.org/debian bookworm-backports main contrib non-free-firmware" | sudo tee -a /etc/apt/sources.list
 
 # Ajout du dépôt VirtualBox
 sudo apt install fasttrack-archive-keyring -y
