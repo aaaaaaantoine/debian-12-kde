@@ -47,6 +47,9 @@ elisa \
 kcolorchooser \
 kdepim-addons \
 kdenlive \
+kdevelop \
+kdevelop-l10n \
+kexi \
 kid3 \
 kontact \
 konversation \
