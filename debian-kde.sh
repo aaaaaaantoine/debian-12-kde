@@ -73,7 +73,7 @@ sudo apt install yt-dlp -t bookworm-backports -y
 sudo apt install fasttrack-archive-keyring -y
 sudo echo "deb http://fasttrack.debian.net/debian-fasttrack/ bookworm-fasttrack main contrib" | sudo tee /etc/apt/sources.list.d/fasttrack.list
 sudo echo "deb http://fasttrack.debian.net/debian-fasttrack/ bookworm-backports-staging main contrib" | sudo tee -a /etc/apt/sources.list.d/fasttrack.list
-sudoapt update
+sudo apt update
 sudo apt install virtualbox -y
 sudo gpasswd -a antoine vboxusers
 #sudo apt install virtualbox-ext-pack -y
