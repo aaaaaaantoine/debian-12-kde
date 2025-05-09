@@ -43,6 +43,7 @@ calligrasheets \
 calligrastage \
 calligrawords \
 elisa \
+kcolorchooser \
 kdepim-addons \
 kdenlive \
 kid3 \
