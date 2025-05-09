@@ -24,6 +24,7 @@ mdadm \
 nfs-kernel-server \
 openssh-server \
 samba \
+rsync \
 ufw \
 vim \
 wget \
