@@ -12,6 +12,7 @@ echo "--------------------------------"
 sudo apt autoremove -y \
 gimp* \
 juk \
+kfind \
 kmag \
 kmousetool \
 kmouth \
