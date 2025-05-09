@@ -12,7 +12,6 @@ echo "--------------------------------"
 sudo apt update
 sudo apt full-upgrade -y
 
-
 # Mes utilitaires
 sudo apt install -y \
 btrfs-progs \
@@ -25,5 +24,9 @@ rsync \
 ufw \
 vim \
 xfsprogs
+
+# Cockpit WebUI
+sudo apt install -y cockpit
+sudo systemctl enable --now cockpit.socket
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
