@@ -74,6 +74,6 @@ sudo apt install yt-dlp -t bookworm-backports -y
 
 # Installation de VirtualBox
 sudo apt install virtualbox -y
-sudo gpasswd -a antoine vboxusers
+sudo gpasswd -a $USER vboxusers
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
