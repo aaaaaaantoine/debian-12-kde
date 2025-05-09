@@ -15,10 +15,7 @@ sudo apt full-upgrade -y
 
 # Mes utilitaires
 sudo apt install -y \
-bash-completion \
 btrfs-progs \
-curl \
-git \
 lvm2 \
 mdadm \
 nfs-kernel-server \
@@ -27,7 +24,6 @@ samba \
 rsync \
 ufw \
 vim \
-wget \
 xfsprogs
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
