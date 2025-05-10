@@ -24,6 +24,7 @@ cockpit-sosreport \
 cockpit-system \
 curl \
 btrfs-progs \
+firewalld \
 kexec-tools \
 lvm2 \
 mdadm \
@@ -32,11 +33,17 @@ nfs-kernel-server \
 openssh-server \
 samba \
 rsync \
-ufw \
 vim \
 xfsprogs
 
 # Services
 sudo systemctl enable --now cockpit.socket
+
+# FirewallD
+#sudo systemctl enable --now firewalld
+#sudo firewall-cmd --change-interface=enp0s3 --zone=work --permanent
+#sudo firewall-cmd --get-active-zones
+#sudo firewall-cmd --zone=work --add-port=9090/tcp --permanent
+#sudo firewall-cmd --reload
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
