@@ -15,10 +15,19 @@ sudo apt full-upgrade -y
 # Mes utilitaires
 sudo apt install -y \
 cockpit \
+cockpit-bridge \
+cockpit-machines \
+cockpit-packagekit \
+cockpit-pcp \
+cockpit-podman \
+cockpit-sosreport \
+cockpit-system \
 curl \
 btrfs-progs \
+kexec-tools \
 lvm2 \
 mdadm \
+nfs-common \
 nfs-kernel-server \
 openssh-server \
 samba \
