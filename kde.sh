@@ -45,7 +45,6 @@ calligrawords \
 digikam \
 elisa \
 kcolorchooser \
-kdepim-addons \
 kdenlive \
 kdevelop \
 kdevelop-l10n \
@@ -56,7 +55,6 @@ konversation \
 krita \
 ksystemlog \
 ktorrent \
-kwalletmanager \
 kwave \
 plasma-firewall \
 yakuake
