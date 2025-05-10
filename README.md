@@ -38,8 +38,16 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 
 * Cockpit
 * Curl
+* Btrfs
+* lvm2
+* mdadm
+* NFS
+* SSH
+* Samba
+* Rsync
+* Ufw
 * Vim
-* Wget
+* XFS
 
 </details>
 
