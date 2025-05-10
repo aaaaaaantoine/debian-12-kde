@@ -16,7 +16,7 @@
 
 ---
 
-## Aperçu
+## 📍 Aperçu
 
 Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de Debian 12 Bookworm.
 
@@ -25,7 +25,7 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 
 ---
 
-## Logiciels
+## 📦 Logiciels
 
 <details closed><summary>Liste des logiciels pour KDE</summary>
 
@@ -36,7 +36,7 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 
 ---
 
-## Prérequis
+## ⚙️ Prérequis
 
 1. Avant d'exécuter ce script, assurez-vous qu'il est sudo installé et que votre utilisateur fait partie de ce groupe. Pour ce faire, exécutez la commande suivante en tant que root (en remplaçant <your username> par votre nom d'utilisateur).
 
@@ -55,7 +55,7 @@ sudo apt install curl
 
 ---
 
-## Lancer le script
+## 🤖 Lancer le script
 
 Personnalisation de KDE Plasma
 
