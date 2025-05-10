@@ -29,7 +29,26 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 
 <details closed><summary>Liste des paquets pour KDE</summary>
 
+* Calligra
 * Curl
+digikam \
+elisa \
+kcolorchooser \
+kdepim-addons \
+kdenlive \
+kdevelop \
+kdevelop-l10n \
+kexi \
+kid3 \
+kontact \
+konversation \
+krita \
+ksystemlog \
+ktorrent \
+kwalletmanager \
+kwave \
+plasma-firewall
+* yakuake
 * Wget
 
 </details>
