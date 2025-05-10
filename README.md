@@ -20,6 +20,22 @@
 
 Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de Debian 12 Bookworm.
 
+- kde.sh pour un KDE personnalisé.
+- server.sh pour une Debian Serveur prêt à l'emploi.
+
+---
+
+## Logiciels
+
+<details closed><summary>Liste des logiciels pour KDE</summary>
+
+* Curl
+* Wget
+
+</details>
+
+---
+
 ## Prérequis
 
 1. Avant d'exécuter ce script, assurez-vous qu'il est sudo installé et que votre utilisateur fait partie de ce groupe. Pour ce faire, exécutez la commande suivante en tant que root (en remplaçant <your username> par votre nom d'utilisateur).
@@ -31,23 +47,32 @@ usermod -aG sudo <your username>
 
 Ou bien, installez Debian sans mot de passe root et cette étape ne devrait pas être nécessaire.
 
-2. Installer curl
+2. Installer Curl
 
 ```sh
 sudo apt install curl
 ```
 
-Téléchargez ensuite le script et rendez-le exécutable :
+---
 
+## Lancer le script
 
+Personnalisation de KDE Plasma
+
+```sh
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/kde.sh)" 
 ```
-wget https://raw.githubusercontent.com/aaaaaaantoine/debian/master/debian-kde.sh
-chmod 755 debian-kde.sh
-./debian-kde.sh
+
+Debian Server prêt à l'emploi
+
+```sh
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/server.sh)" 
 ```
+---
 
-## Versions
 
-Outre la version bureau KDE, [ce script](https://github.com/aaaaaaantoine/debian/blob/main/debian-server.sh) permet d'installer un serveur Debian avec des utilitaires de base. Ce dernier ne propose aucune application graphique, mais dispose d'un serveur SSH pour l'administration à distance. 
+## Licence
 
-Ou bien [ce tutoriel](https://github.com/aaaaaaantoine/debian-nextcloud) vous explique comment mettre en place un serveur Nextcloud sous Debian 12 facilement et rapidement.
+Distributed under the GNU License. See LICENSE.md for more information.
+
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
