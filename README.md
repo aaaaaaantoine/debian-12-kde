@@ -34,7 +34,6 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 * Digikam
 * Elisa
 * Kcolorchooser
-* Kdepim-addons
 * Kdenlive
 * Kdevelop
 * Kexi
@@ -45,7 +44,6 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 * Krita
 * Ksystemlog
 * Ktorrent
-* Kwalletmanager
 * Kwave
 * Plasma-firewall
 * Ufw
