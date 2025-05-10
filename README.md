@@ -27,9 +27,18 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 
 ## 📦 Logiciels
 
-<details closed><summary>Liste des logiciels pour KDE</summary>
+<details closed><summary>Liste des paquets pour KDE</summary>
 
 * Curl
+* Wget
+
+</details>
+
+<details closed><summary>Liste des paquets pour Server</summary>
+
+* Cockpit
+* Curl
+* Vim
 * Wget
 
 </details>
