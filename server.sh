@@ -14,6 +14,8 @@ sudo apt full-upgrade -y
 
 # Mes utilitaires
 sudo apt install -y \
+cockpit \
+curl \
 btrfs-progs \
 lvm2 \
 mdadm \
