@@ -70,9 +70,4 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debia
 ```
 ---
 
-
-## Licence
-
-Distributed under the GNU License. See LICENSE.md for more information.
-
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
