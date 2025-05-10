@@ -27,4 +27,7 @@ ufw \
 vim \
 xfsprogs
 
+# Services
+sudo systemctl enable --now cockpit.socket
+
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
