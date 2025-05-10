@@ -47,16 +47,9 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 
 ## ⚙️ Prérequis
 
-1. Avant d'exécuter ce script, assurez-vous qu'il est sudo installé et que votre utilisateur fait partie de ce groupe. Pour ce faire, exécutez la commande suivante en tant que root (en remplaçant <your username> par votre nom d'utilisateur).
+- **Dépendance**
 
-```
-apt install -y sudo
-usermod -aG sudo <your username>
-```
-
-Ou bien, installez Debian sans mot de passe root et cette étape ne devrait pas être nécessaire.
-
-2. Installer Curl
+Vérifiez que le paquet curl soit bien installé sur votre système.
 
 ```sh
 sudo apt install curl
