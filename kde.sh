@@ -66,6 +66,7 @@ sudo apt install kodi -y
 
 # Utilitaires en ligne de commande
 sudo apt install -y \
+curl \
 ufw \
 vim
 
