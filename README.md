@@ -39,6 +39,7 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 * Kdevelop
 * Kexi
 * Kid3
+* Kodi
 * Kontact
 * Konversation
 * Krita
@@ -47,6 +48,9 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 * Kwalletmanager
 * Kwave
 * Plasma-firewall
+* Ufw
+* Vim
+* VirtualBox
 * yakuake
 
 </details>
