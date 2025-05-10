@@ -31,25 +31,23 @@ Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels a
 
 * Calligra
 * Curl
-digikam \
-elisa \
-kcolorchooser \
-kdepim-addons \
-kdenlive \
-kdevelop \
-kdevelop-l10n \
-kexi \
-kid3 \
-kontact \
-konversation \
-krita \
-ksystemlog \
-ktorrent \
-kwalletmanager \
-kwave \
-plasma-firewall
+* Digikam
+* Elisa
+* Kcolorchooser
+* Kdepim-addons
+* Kdenlive
+* Kdevelop
+* Kexi
+* Kid3
+* Kontact
+* Konversation
+* Krita
+* Ksystemlog
+* Ktorrent
+* Kwalletmanager
+* Kwave
+* Plasma-firewall
 * yakuake
-* Wget
 
 </details>
 
