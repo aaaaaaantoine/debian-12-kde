@@ -69,8 +69,8 @@ sudo apt install -y \
 ufw \
 vim
 
-# Installation du script Youtube-dl depuis le dépôt Backpors
-sudo apt install yt-dlp -t bookworm-backports -y
+# Installation du script Youtube-dl depuis le dépôt Backports
+sudo apt install yt-dlp -t stable-backports -y
 
 # Installation de VirtualBox
 sudo apt install virtualbox -y
