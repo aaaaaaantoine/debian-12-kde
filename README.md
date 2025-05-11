@@ -1,6 +1,6 @@
 <div align="center">
 <h1 align="center">
-<br>Debian 12 Post Install
+<br>Debian Post Install
 </h1>
 <h3>◦ Développé avec les logiciels et outils ci-dessous.</h3>
 
@@ -18,10 +18,12 @@
 
 ## 📍 Aperçu
 
-Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de Debian 12 Bookworm.
+Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de [Debian](https://www.debian.org/).
 
-- kde.sh pour un KDE personnalisé.
-- server.sh pour une Debian Serveur prêt à l'emploi.
+Testé pour Debian 12 Bookworm.
+
+- **kde.sh** pour un KDE personnalisé.
+- **server.sh** pour un serveur prêt à l'emploi avec le WebUI Cockpit.
 
 ---
 
