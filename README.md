@@ -2,9 +2,9 @@
 
 ## Aperçu
 
-Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de [Debian](https://www.debian.org/) Minimal.
+* Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de [Debian](https://www.debian.org/) Minimal.
 
-Testé pour Debian 12 Bookworm.
+* Testé pour Debian 12 Bookworm.
 
 - **gnome.sh** pour un GNOME personnalisé.
 - **server.sh** pour un serveur prêt à l'emploi avec le WebUI Cockpit.
@@ -31,8 +31,6 @@ Testé pour Debian 12 Bookworm.
 
 </details>
 
----
-
 ## Dépendance
 
 * Vérifiez que le paquet curl soit bien installé sur votre système.
@@ -40,8 +38,6 @@ Testé pour Debian 12 Bookworm.
 ```sh
 sudo apt install curl
 ```
-
----
 
 ## Lancer le script
 
