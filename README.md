@@ -2,7 +2,7 @@
 
 ## Aperçu
 
-Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de [Debian](https://www.debian.org/).
+Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de [Debian](https://www.debian.org/) Minimal.
 
 Testé pour Debian 12 Bookworm.
 
