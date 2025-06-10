@@ -24,14 +24,9 @@ cockpit-sosreport \
 cockpit-system \
 curl \
 btrfs-progs \
-firewalld \
-kexec-tools \
 lvm2 \
 mdadm \
-nfs-common \
-nfs-kernel-server \
 openssh-server \
-samba \
 rsync \
 ufw \
 vim \
