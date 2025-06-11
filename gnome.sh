@@ -55,8 +55,12 @@ evince \
 gnome-characters \
 gnome-font-viewer \
 gnome-logs \
+gnome-maps \
 gnome-snapshot \
 simple-scan \
 totem
+
+# Services
+sudo systemctl enable --now libvirtd
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
