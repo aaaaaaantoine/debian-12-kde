@@ -43,7 +43,7 @@ sudo apt install curl
 
 * Bureau GNOME personnalisé.
 ```sh
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/gnom.sh.sh)" 
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/gnome.sh)" 
 ```
 
 * Debian Server prêt à l'emploi.
