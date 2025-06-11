@@ -4,7 +4,7 @@
 
 * Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de [Debian](https://www.debian.org/) Minimal.
 
-* Testé pour Debian 12 Bookworm.
+* Testé pour Debian 12 et 13.
 
 - **gnome.sh** pour un GNOME personnalisé.
 - **server.sh** pour un serveur prêt à l'emploi avec le WebUI Cockpit.
