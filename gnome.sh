@@ -38,8 +38,12 @@ kodi \
 secrets \
 shortwave \
 ufw \
-vim \
-virt-manager
+vim 
+
+# Virtualisation Qemu/KVM
+sudo apt install -y virt-manager
+sudo usermod -a -G libvirt antoine
+sudo systemctl enable --now libvirtd
 
 # Installation mes utilitaires Flatpak pour GNOME
 sudo flatpak install -y flathub app.drey.EarTag
@@ -59,8 +63,5 @@ gnome-maps \
 gnome-snapshot \
 simple-scan \
 totem
-
-# Services
-sudo systemctl enable --now libvirtd
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
