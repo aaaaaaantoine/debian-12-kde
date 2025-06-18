@@ -61,6 +61,7 @@ gnome-font-viewer \
 gnome-logs \
 gnome-maps \
 gnome-snapshot \
+shotwell \
 simple-scan \
 totem
 
