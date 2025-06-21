@@ -12,7 +12,25 @@
 
 <details closed><summary>Liste des paquets pour GNOME</summary>
 
-* 
+* abiword
+* alacarte
+* celluloid
+* curl
+* deja-dup
+* epiphany
+* geary
+* gnome-builder
+* gnome-calendar
+* gnome-console
+* gnome-music
+* gnucash
+* gnumeric
+* git
+* kodi
+* secrets
+* shortwave
+* ufw
+* vim 
 
 </details>
 
