@@ -15,27 +15,25 @@ sudo apt full-upgrade -y
 # Mes utilitaires
 sudo apt install -y \
 cockpit \
-cockpit-bridge \
 cockpit-machines \
 cockpit-packagekit \
 cockpit-pcp \
 cockpit-podman \
-cockpit-sosreport \
-cockpit-system \
 curl \
-btrfs-progs \
-lvm2 \
-mdadm \
-openssh-server \
-rsync \
-ufw \
-vim \
-xfsprogs
+rsync
 
 # Services
 sudo systemctl enable --now cockpit.socket
+sudo systemctl enable --now libvirtd
 
-# libvirt
+### UFW
+sudo apt install -y ufw
+sudo allow ssh
+sudo allow 9090/tcp
+sudo enable ufw
+
+# libvirt USER Mode
 sudo usermod -a -G libvirt $USER
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
+exit 0
