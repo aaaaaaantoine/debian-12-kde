@@ -36,6 +36,6 @@ xfsprogs
 sudo systemctl enable --now cockpit.socket
 
 # libvirt
-sudo usermod -a -G libvirt antoine
+sudo usermod -a -G libvirt $USER
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
