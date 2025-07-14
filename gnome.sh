@@ -42,7 +42,7 @@ vim
 
 # Virtualisation Qemu/KVM
 sudo apt install -y virt-manager
-sudo usermod -a -G libvirt antoine
+sudo usermod -a -G libvirt $USER
 sudo systemctl enable --now libvirtd
 
 # Installation mes utilitaires Flatpak pour GNOME
