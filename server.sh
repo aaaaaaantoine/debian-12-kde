@@ -28,9 +28,9 @@ sudo systemctl enable --now libvirtd
 
 ### UFW
 sudo apt install -y ufw
-sudo allow ssh
-sudo allow 9090/tcp
-sudo enable ufw
+sudo ufw allow ssh
+sudo ufw allow 9090/tcp
+sudo ufw enable
 
 # libvirt USER Mode
 sudo usermod -a -G libvirt $USER
