@@ -66,3 +66,4 @@ simple-scan \
 totem
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
+exit 0
