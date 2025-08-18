@@ -7,6 +7,7 @@
 * Testé pour Debian 12 et 13.
 
 - **gnome.sh** pour un GNOME personnalisé.
+- **kde.sh** pour un KDE Plasma personnalisé.
 - **server.sh** pour un serveur prêt à l'emploi avec le WebUI Cockpit.
 
 
@@ -38,14 +39,9 @@
 
 * Cockpit
 * Curl
-* Btrfs
-* lvm2
-* mdadm
-* SSH
 * Rsync
 * Ufw
 * Vim
-* XFS
 
 </details>
 
@@ -64,10 +60,16 @@ sudo apt install curl
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/gnome.sh)" 
 ```
 
+* Bureau KDE Plasma personnalisé.
+```sh
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/kde.sh)" 
+```
+
 * Debian Server prêt à l'emploi.
 ```sh
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/server.sh)" 
 ```
+
 ---
 
 ### Pont réseau pour vos VM avec systemd-networkd
