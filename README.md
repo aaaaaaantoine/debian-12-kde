@@ -68,3 +68,63 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debia
 ```sh
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/server.sh)" 
 ```
+---
+
+### Pont réseau pour vos VM avec systemd-networkd
+1) Si vous utilisez un gestionnaire de réseau tel que Network Manager, désactiver le.
+```sh
+sudo apt install -y systemd-networkd
+sudo systemctl disable --now NetworkManager
+```
+
+2) Lancez le service systemd:
+```sh
+sudo systemctl enable systemd-networkd
+sudo systemctl start systemd-networkd
+```
+
+3) Fichiers de configuration:
+
+```sh
+sudo nano /etc/systemd/network/10-br0.netdev
+```
+```sh
+[NetDev]
+Name=br0
+Kind=bridge
+```
+```sh
+sudo nano /etc/systemd/network/10-br0.network
+```
+```sh
+[Match]
+Name=br0
+
+[Network]
+Address=192.168.1.50/24
+Gateway=192.168.1.1
+DNS=192.168.1.1
+```
+
+```sh
+sudo nano /etc/systemd/network/20-eth0.network
+```
+
+```sh
+[Match]
+Name=enp1s0
+
+[Network]
+Bridge=br0
+```
+
+4) En fin, redémarrez le service:
+
+```sh
+sudo systemctl restart systemd-networkd
+```
+
+5) Vérifiez que la configuration fonctionne bien
+```sh
+networkctl status
+```
