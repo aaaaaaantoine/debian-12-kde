@@ -8,15 +8,15 @@ echo "--------------------------------"
 echo "Script de Debian à usage général"
 echo "--------------------------------"
 
-# Mise à jour du système 
+## Upgrade 
 sudo apt update
 sudo apt full-upgrade -y
 
-# Installation de Flatpak
-sudo apt install -y flatpak
-sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+## Flatpak
+# sudo apt install -y flatpak
+# sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-# Installation mes utilitaires pour KDE Plasma
+# Bureau KDE Plasma
 sudo apt install -y \
 akregator \
 ark \
@@ -46,7 +46,6 @@ konversation \
 krdc \
 krita \
 ktorrent \
-libvncserver \
 okular \
 partitionmanager \
 plasma-firewall \
@@ -60,7 +59,7 @@ sudo apt install -y virt-manager
 sudo usermod -aG libvirt $USER
 sudo systemctl enable --now libvirtd
 
-# Installation du script Youtube-dl
+# Installation de Youtube-dl
 sudo apt install -y yt-dlp
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
