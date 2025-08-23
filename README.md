@@ -39,8 +39,8 @@
 
 * Cockpit
 * Curl
+* FirewallD
 * Rsync
-* Ufw
 * Vim
 
 </details>
