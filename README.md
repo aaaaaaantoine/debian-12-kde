@@ -71,31 +71,26 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debia
 ---
 
 ### Pont réseau pour vos VM avec systemd-networkd
-1) Si vous utilisez un gestionnaire de réseau tel que Network Manager, désactiver le.
-```sh
-sudo apt install -y systemd-networkd
-sudo systemctl disable --now NetworkManager
-```
 
-2) Lancez le service systemd:
-```sh
-sudo systemctl enable systemd-networkd
-sudo systemctl start systemd-networkd
 ```
-
-3) Fichiers de configuration:
+sudo mv /etc/network/interfaces /etc/network/interfaces.save
+sudo mv /etc/network/interfaces.d /etc/network/interfaces.d.save
+```
 
 ```sh
 sudo nano /etc/systemd/network/10-br0.netdev
 ```
+
 ```sh
 [NetDev]
 Name=br0
 Kind=bridge
 ```
+
 ```sh
 sudo nano /etc/systemd/network/10-br0.network
 ```
+
 ```sh
 [Match]
 Name=br0
@@ -118,13 +113,10 @@ Name=enp1s0
 Bridge=br0
 ```
 
-4) En fin, redémarrez le service:
-
 ```sh
-sudo systemctl restart systemd-networkd
+sudo systemctl enable --now systemd-networkd
 ```
 
-5) Vérifiez que la configuration fonctionne bien
 ```sh
 networkctl status
 ```
