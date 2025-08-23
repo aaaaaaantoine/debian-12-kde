@@ -26,14 +26,14 @@ rsync
 sudo systemctl enable --now cockpit.socket
 sudo systemctl enable --now libvirtd
 
-### UFW
-sudo apt install -y ufw
-sudo ufw allow ssh
-sudo ufw allow 9090/tcp
-sudo ufw enable
+### FirewallD
+sudo apt install -y firewalld
+sudo systemctl enable --now firewalld
+sudo firewall-cmd --add-port=9090/tcp --permanent
+sudo firewall-cmd --reload
 
 # libvirt USER Mode
-sudo usermod -a -G libvirt $USER
+sudo usermod -aG libvirt $USER
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
 exit 0
