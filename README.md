@@ -37,11 +37,9 @@
 
 <details closed><summary>Liste des paquets pour Server</summary>
 
-* Cockpit
 * Curl
-* FirewallD
+* UFW
 * Rsync
-* Vim
 
 </details>
 
