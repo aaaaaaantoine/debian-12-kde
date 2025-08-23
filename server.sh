@@ -12,28 +12,18 @@ echo "--------------------------------"
 sudo apt update
 sudo apt full-upgrade -y
 
-# Mes utilitaires
-sudo apt install -y \
-cockpit \
-cockpit-machines \
-cockpit-packagekit \
-cockpit-pcp \
-cockpit-podman \
-curl \
-rsync
+# Rsync
+sudo apt install -y rsync
 
-# Services
-sudo systemctl enable --now cockpit.socket
+# Libvirt Qemu/KVM
+sudo apt install -y libvirt-daemon
 sudo systemctl enable --now libvirtd
-
-### FirewallD
-sudo apt install -y firewalld
-sudo systemctl enable --now firewalld
-sudo firewall-cmd --add-port=9090/tcp --permanent
-sudo firewall-cmd --reload
-
-# libvirt USER Mode
 sudo usermod -aG libvirt $USER
+
+### UFW
+sudo apt install -y ufw
+sudo ufw allow ssh
+sudo ufw enable
 
 echo "Le script post-installation est terminé, veuillez redémarrer le système"
 exit 0
