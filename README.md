@@ -26,7 +26,7 @@ sudo apt install -y curl
 ## Utilisation
 **Avertissement de sécurité : L'exécution d'un script directement depuis Internet peut présenter un risque. Nous vous recommandons d'inspecter le contenu du script au préalable.**
 
-Pour lancer un script, utilisez la commande suivante en remplaçant [NOM_DU_SCRIPT] par le script désiré (gnome.sh, kde.sh, ou server.sh).
+Pour le télécharger, utilisez la commande suivante en remplaçant [NOM_DU_SCRIPT] par le script désiré (gnome.sh, kde.sh, ou server.sh).
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/[NOM_DU_SCRIPT] -o ~/postinstall.sh
