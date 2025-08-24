@@ -77,6 +77,36 @@ systemctl enable --now libvirtd
 echo "Configuration de Flatpak et ajout du dépôt Flathub..."
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+#==================================================
+# INSTALLATION DE PAQUETS DEPUIS DEBIAN SID
+#
+# AVERTISSEMENT : Cette section ajoute le dépôt Debian Unstable (Sid) et
+# installe un paquet spécifique. L'utilisation de Sid peut introduire
+# des incompatibilités et rendre votre système instable.
+# Utilisez-le avec une grande prudence.
+#==================================================
+echo "--- Installation d'un paquet depuis le dépôt Debian Sid ---"
+
+# Ajoute le dépôt Sid
+echo "deb http://deb.debian.org/debian/ sid main contrib non-free" >> /etc/apt/sources.list.d/sid.list
+
+# Crée le fichier de préférences pour APT (APT Pinning)
+cat <<EOF > /etc/apt/preferences.d/99-pin-sid.pref
+Package: *
+Pin: release a=unstable
+Pin-Priority: 100
+EOF
+
+# Met à jour la liste des paquets avec le nouveau dépôt
+apt update
+
+# Installe un paquet spécifique depuis Sid
+# Remplacez [NOM_DU_PAQUET] par le paquet que vous souhaitez installer.
+# Lisez attentivement les dépendances affichées avant de valider.
+# apt install -t unstable [NOM_DU_PAQUET]
+
+echo "Le dépôt Sid a été ajouté et configuré. Vous pouvez maintenant installer un paquet en utilisant 'apt install -t unstable [NOM_DU_PAQUET]'"
+
 echo "--------------------------------------------------------"
 echo "Le script de post-installation est terminé."
 echo "Un redémarrage est nécessaire pour que les modifications prennent effet."
