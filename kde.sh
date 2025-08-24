@@ -1,66 +1,84 @@
 #!/bin/bash
 
-# Script à exécuter après l'installation de Debian depuis l'image ISO Minimal Netinstall
-# Commentez les sections qui ne vous intéressent pas.
-# Pour l'utiliser vous aurez besoin de sudo et que votre utilisateur soit dans ce groupe.
+#==================================================
+# Script de post-installation Debian - Bureau KDE
+#--------------------------------------------------
+# Automatise l'installation et la configuration
+# d'un environnement de bureau KDE Plasma.
+#==================================================
 
-echo "--------------------------------"
-echo "Script de Debian à usage général"
-echo "--------------------------------"
+# Règle d'or : le script s'arrête si une commande échoue
+set -e
 
-## Upgrade 
-sudo apt update
-sudo apt full-upgrade -y
+# Vérification des privilèges root
+if [[ $EUID -ne 0 ]]; then
+    echo "ERREUR : Ce script doit être exécuté en tant que root. Veuillez utiliser 'sudo'." >&2
+    exit 1
+fi
 
-## Flatpak
-# sudo apt install -y flatpak
-# sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+echo "--- Démarrage du script de post-installation KDE Plasma ---"
 
-# Bureau KDE Plasma
-sudo apt install -y \
-akregator \
-ark \
-calligra \
-dolphin \
-dragonplayer \
-elisa \
-falkon \
-gwenview \
-kaccounts-integration \
-kaccounts-providers \
-kaddressbook \
-kate \
-kcalc \
-kdenlive \
-kdevelop \
-kdevelop-l10n \
-kexi \
-kde-plasma-desktop \
-kdepim-addons \
-kmail \
-kodi \
-korganizer \
-konsole \
-kontact \
-konversation \
-krdc \
-krita \
-ktorrent \
-okular \
-partitionmanager \
-plasma-firewall \
-sddm \
-vim \
-virt-manager \
-yakuake
+# --- Mise à jour du système ---
+echo "Mise à jour et mise à niveau du système..."
+apt update && apt full-upgrade -y
 
-# Virtualisation Qemu/KVM
-sudo apt install -y virt-manager
-sudo usermod -aG libvirt $USER
-sudo systemctl enable --now libvirtd
+# --- Installation des paquets principaux ---
+echo "Installation des paquets du bureau KDE Plasma..."
+# La liste est combinée en une seule commande pour plus d'efficacité
+apt install -y \
+  akregator \
+  ark \
+  calligra \
+  dolphin \
+  dragonplayer \
+  elisa \
+  falkon \
+  gwenview \
+  kaccounts-integration \
+  kaccounts-providers \
+  kaddressbook \
+  kate \
+  kcalc \
+  kdenlive \
+  kdevelop \
+  kdevelop-l10n \
+  kexi \
+  kde-plasma-desktop \
+  kdepim-addons \
+  kmail \
+  kodi \
+  korganizer \
+  konsole \
+  kontact \
+  konversation \
+  krdc \
+  krita \
+  ktorrent \
+  okular \
+  partitionmanager \
+  plasma-firewall \
+  sddm \
+  vim \
+  virt-manager \
+  yakuake \
+  flatpak \
+  yt-dlp
 
-# Installation de Youtube-dl
-sudo apt install -y yt-dlp
+# --- Configuration de la virtualisation ---
+echo "Configuration de l'utilisateur pour la virtualisation Qemu/KVM..."
+# Utilise logname pour s'assurer que le bon utilisateur est ajouté
+usermod -aG libvirt "$(logname)"
 
-echo "Le script post-installation est terminé, veuillez redémarrer le système"
+echo "Activation du service de virtualisation libvirtd..."
+systemctl enable --now libvirtd
+
+# --- Configuration de Flatpak ---
+# La section Flatpak a été activée
+echo "Configuration de Flatpak et ajout du dépôt Flathub..."
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+echo "--------------------------------------------------------"
+echo "Le script de post-installation est terminé."
+echo "Un redémarrage est nécessaire pour que les modifications prennent effet."
+echo "--------------------------------------------------------"
 exit 0
