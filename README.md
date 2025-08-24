@@ -29,7 +29,12 @@ sudo apt install -y curl
 Pour lancer un script, utilisez la commande suivante en remplaçant [NOM_DU_SCRIPT] par le script désiré (gnome.sh, kde.sh, ou server.sh).
 
 ```sh
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/[NOM_DU_SCRIPT])"
+curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/[NOM_DU_SCRIPT] -o ~/postinstall.sh
+```
+
+Une fois la vérification faites et vos modifications effectuées :
+```sh
+sudo bash ~/postinstall.sh
 ```
 
 ---
