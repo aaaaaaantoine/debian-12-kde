@@ -1,85 +1,56 @@
-# Debian Minimal Post-Install
+# Configuration de Debian - Post-installation
+
+Un ensemble de scripts pour automatiser la configuration de Debian 12 (Bookworm) et Debian 13 (Trixie).
 
 ## Aperçu
 
-* Ce dépôt contient plusieurs scripts bash simple pour installer des logiciels après une installation de [Debian](https://www.debian.org/) Minimal.
+Ce dépôt contient des scripts Bash conçus pour simplifier la post-installation de Debian. Ils permettent de transformer rapidement une installation minimale en un environnement de travail ou un serveur fonctionnel.
 
-* Testé pour Debian 12 et 13.
+Chaque script automatise l'installation d'une sélection de paquets et configure les services essentiels, vous permettant de gagner du temps et d'assurer la cohérence de vos déploiements.
 
-- **gnome.sh** pour un GNOME personnalisé.
-- **kde.sh** pour un KDE Plasma personnalisé.
-- **server.sh** pour un serveur prêt à l'emploi avec le WebUI Cockpit.
+## Scripts disponibles
 
+* `gnome.sh` : Configure un environnement de bureau GNOME complet avec des paquets utilitaires populaires.
+* `kde.sh` : Installe et configure un bureau KDE Plasma avec un ensemble d'applications courantes.
+* `server.sh` : Met en place un serveur minimal et prêt à l'emploi avec l'interface d'administration Web Cockpit.
 
-<details closed><summary>Liste des paquets pour GNOME</summary>
+## Dépendances
 
-* abiword
-* alacarte
-* celluloid
-* curl
-* deja-dup
-* epiphany
-* geary
-* gnome-builder
-* gnome-calendar
-* gnome-console
-* gnome-music
-* gnucash
-* gnumeric
-* git
-* kodi
-* secrets
-* shortwave
-* ufw
-* vim 
-
-</details>
-
-<details closed><summary>Liste des paquets pour Server</summary>
-
-* Curl
-* UFW
-* Rsync
-
-</details>
-
-## Dépendance
-
-* Vérifiez que le paquet curl soit bien installé sur votre système.
+Assurez-vous que le paquet `curl` est installé sur votre système, car il est nécessaire pour lancer les scripts directement depuis votre terminal.
 
 ```sh
-sudo apt install curl
+sudo apt update
+sudo apt install -y curl
 ```
 
-## Lancer le script
+## Utilisation
+**Avertissement de sécurité : L'exécution d'un script directement depuis Internet peut présenter un risque. Nous vous recommandons d'inspecter le contenu du script au préalable.**
 
-* Bureau GNOME personnalisé.
-```sh
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/gnome.sh)" 
-```
+Pour lancer un script, utilisez la commande suivante en remplaçant [NOM_DU_SCRIPT] par le script désiré (gnome.sh, kde.sh, ou server.sh).
 
-* Bureau KDE Plasma personnalisé.
 ```sh
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/kde.sh)" 
-```
-
-* Debian Server prêt à l'emploi.
-```sh
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/server.sh)" 
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/aaaaaaantoine/debian-post-install/main/[NOM_DU_SCRIPT])"
 ```
 
 ---
 
-### Pont réseau pour vos VM avec systemd-networkd
+# Configuration avancée : le pont réseau
 
-```
+Si vous souhaitez créer un pont réseau (bridge) pour vos machines virtuelles avec systemd-networkd, vous pouvez suivre ces instructions pour une configuration manuelle.
+
+**IMPORTANT : Sauvegardez d'abord votre configuration réseau existante.**
+
+```sh
+# Sauvegarder la configuration d'interfaces.d (si elle existe)
 sudo mv /etc/network/interfaces /etc/network/interfaces.save
 sudo mv /etc/network/interfaces.d /etc/network/interfaces.d.save
 ```
-
 ```sh
+# Créer le pont réseau
 sudo nano /etc/systemd/network/10-br0.netdev
 ```
+
+Ajoutez le contenu suivant :
 
 ```sh
 [NetDev]
@@ -87,36 +58,42 @@ Name=br0
 Kind=bridge
 ```
 
+## Configurer l'adresse IP du pont réseau
 ```sh
 sudo nano /etc/systemd/network/10-br0.network
 ```
 
+Ajoutez le contenu suivant, en adaptant les valeurs à votre réseau local :
 ```sh
 [Match]
 Name=br0
 
 [Network]
-Address=192.168.1.50/24
-Gateway=192.168.1.1
-DNS=192.168.1.1
+Address=192.168.1.50/24  # Adresse IP statique de votre serveur
+Gateway=192.168.1.1      # Passerelle (adresse de votre box)
+DNS=192.168.1.1          # Serveur DNS
 ```
 
+## Connecter l'interface physique au pont
 ```sh
 sudo nano /etc/systemd/network/20-eth0.network
 ```
 
-```sh
+Ajoutez le contenu suivant, en remplaçant enp1s0 par le nom de votre interface réseau réelle :
+```
 [Match]
-Name=enp1s0
+Name=enp1s0  # Nom de votre interface physique (ex: enp1s0, eth0, ens33)
 
 [Network]
 Bridge=br0
 ```
 
+## Activer et redémarrer le service
 ```sh
 sudo systemctl enable --now systemd-networkd
 ```
 
+Pour vérifier l'état du pont, utilisez networkctl status.
 ```sh
 networkctl status
 ```
