@@ -12,18 +12,18 @@ set -e
 
 # Vérification des privilèges root
 if [[ $EUID -ne 0 ]]; then
-    echo "ERREUR : Ce script doit être exécuté en tant que root. Veuillez utiliser 'sudo'." >&2
+    echo -e "\e[31mERREUR : Ce script doit être exécuté en tant que root. Veuillez utiliser 'sudo'.\e[0m" >&2
     exit 1
 fi
 
-echo "--- Démarrage du script de post-installation GNOME ---"
+echo -e "\e[34m--- Démarrage du script de post-installation GNOME ---\e[0m"
 
 # --- Mise à jour du système ---
-echo "Mise à jour et mise à niveau du système..."
+echo -e "\e[34mMise à jour et mise à niveau du système...\e[0m"
 apt update && apt full-upgrade -y
 
 # --- Installation des paquets principaux ---
-echo "Installation des utilitaires de base et de l'environnement GNOME..."
+echo -e "\e[34mInstallation des utilitaires de base et de l'environnement GNOME...\e[0m"
 apt install -y \
   abiword \
   alacarte \
@@ -51,25 +51,24 @@ apt install -y \
   flatpak
 
 # --- Configuration des services ---
-echo "Configuration de l'utilisateur pour la virtualisation Qemu/KVM..."
-# Utilise logname pour s'assurer que le bon utilisateur est ajouté
+echo -e "\e[34mConfiguration de l'utilisateur pour la virtualisation Qemu/KVM...\e[0m"
 usermod -a -G libvirt $USER
 
-echo "Activation du service de virtualisation libvirtd..."
+echo -e "\e[34mActivation du service de virtualisation libvirtd...\e[0m"
 systemctl enable --now libvirtd
 
 # --- Configuration de Flatpak ---
-echo "Configuration de Flatpak et ajout du dépôt Flathub..."
+echo -e "\e[34mConfiguration de Flatpak et ajout du dépôt Flathub...\e[0m"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-echo "Installation des utilitaires Flatpak..."
+echo -e "\e[34mInstallation des utilitaires Flatpak...\e[0m"
 flatpak install -y flathub \
   app.drey.EarTag \
   io.gitlab.news_flash.NewsFlash \
   org.gnome.Podcasts
 
 # --- Nettoyage du système ---
-echo "Suppression des paquets inutiles..."
+echo -e "\e[34mSuppression des paquets inutiles...\e[0m"
 apt autoremove -y \
   evince \
   gnome-characters \
@@ -80,6 +79,12 @@ apt autoremove -y \
   shotwell \
   simple-scan \
   totem
+
+# --- Configuration de l'écran de connexion GDM ---
+echo -e "\e[34mSynchronisation de la résolution de l'écran de connexion GDM...\e[0m"
+mkdir -p /var/lib/gdm3/.config
+cp -f ~/.config/monitors.xml /var/lib/gdm3/.config/
+chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
 
 #==================================================
 # INSTALLATION DE PAQUETS DEPUIS DEBIAN BACKPORTS
@@ -99,8 +104,8 @@ apt autoremove -y \
 # Remplacez [NOM_DU_PAQUET] et la version de Debian si nécessaire.
 # apt install -t bookworm-backports [NOM_DU_PAQUET]
 
-echo "--------------------------------------------------------"
-echo "Le script de post-installation est terminé."
-echo "Un redémarrage est nécessaire pour que les modifications prennent effet."
-echo "--------------------------------------------------------"
+echo -e "\e[34m--------------------------------------------------------\e[0m"
+echo -e "\e[34mLe script de post-installation est terminé.\e[0m"
+echo -e "\e[34mUn redémarrage est nécessaire pour que les modifications prennent effet.\e[0m"
+echo -e "\e[34m--------------------------------------------------------\e[0m"
 exit 0
