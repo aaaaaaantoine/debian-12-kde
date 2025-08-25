@@ -80,12 +80,6 @@ apt autoremove -y \
   simple-scan \
   totem
 
-# --- Configuration de l'écran de connexion GDM ---
-echo -e "\e[34mSynchronisation de la résolution de l'écran de connexion GDM...\e[0m"
-mkdir -p /var/lib/gdm3/.config
-cp -f ~/.config/monitors.xml /var/lib/gdm3/.config/
-chown gdm:gdm /var/lib/gdm3/.config/monitors.xml
-
 #==================================================
 # INSTALLATION DE PAQUETS DEPUIS DEBIAN BACKPORTS
 #
