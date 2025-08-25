@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #==================================================
-# Script de post-installation Debian - Bureau GNOME
+# Script de post-installation Debian - Bureau KDE
 #--------------------------------------------------
 # Automatise l'installation et la configuration
-# d'un environnement de bureau GNOME customisé.
+# d'un environnement de bureau KDE Plasma.
 #==================================================
 
 # Règle d'or : le script s'arrête si une commande échoue
@@ -16,70 +16,66 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-echo "--- Démarrage du script de post-installation GNOME ---"
+echo "--- Démarrage du script de post-installation KDE Plasma ---"
 
 # --- Mise à jour du système ---
 echo "Mise à jour et mise à niveau du système..."
 apt update && apt full-upgrade -y
 
 # --- Installation des paquets principaux ---
-echo "Installation des utilitaires de base et de l'environnement GNOME..."
+echo "Installation des paquets du bureau KDE Plasma..."
+# La liste est combinée en une seule commande pour plus d'efficacité
 apt install -y \
-  abiword \
-  alacarte \
-  celluloid \
-  curl \
-  deja-dup \
-  epiphany-browser \
-  geary \
-  gnome-builder \
-  gnome-calendar \
-  gnome-console \
-  gnome-core \
-  gnome-music \
-  gnome-software-plugin-flatpak \
-  gnucash \
-  gnumeric \
-  git \
+  akregator \
+  ark \
+  calligra \
+  dolphin \
+  dragonplayer \
+  elisa \
+  falkon \
+  gwenview \
+  kaccounts-integration \
+  kaccounts-providers \
+  kaddressbook \
+  kate \
+  kcalc \
+  kdenlive \
+  kdevelop \
+  kdevelop-l10n \
+  kexi \
+  kde-plasma-desktop \
+  kdepim-addons \
+  kmail \
   kodi \
-  secrets \
-  shortwave \
-  ufw \
+  korganizer \
+  konsole \
+  kontact \
+  konversation \
+  krdc \
+  krita \
+  ktorrent \
+  okular \
+  partitionmanager \
+  plasma-firewall \
+  sddm \
   vim \
   virt-manager \
-  yt-dlp \
-  flatpak
+  yakuake \
+  flatpak \
+  yt-dlp
 
-# --- Configuration des services ---
+# --- Configuration de la virtualisation ---
 echo "Configuration de l'utilisateur pour la virtualisation Qemu/KVM..."
 # Utilise logname pour s'assurer que le bon utilisateur est ajouté
-usermod -a -G libvirt $USER
+usermod -aG libvirt $USER
 
 echo "Activation du service de virtualisation libvirtd..."
 systemctl enable --now libvirtd
 
 # --- Configuration de Flatpak ---
+# La section Flatpak a été activée
 echo "Configuration de Flatpak et ajout du dépôt Flathub..."
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-echo "Installation des utilitaires Flatpak..."
-flatpak install -y flathub \
-  app.drey.EarTag \
-  io.gitlab.news_flash.NewsFlash \
-  org.gnome.Podcasts
-
-# --- Nettoyage du système ---
-echo "Suppression des paquets inutiles..."
-apt autoremove -y \
-  evince \
-  gnome-characters \
-  gnome-font-viewer \
-  gnome-logs \
-  gnome-maps \
-  gnome-snapshot \
-  shotwell \
-  simple-scan \
-  totem
 
 #==================================================
 # INSTALLATION DE PAQUETS DEPUIS DEBIAN BACKPORTS
@@ -90,14 +86,14 @@ apt autoremove -y \
 #==================================================
 
 # Ajoute le dépôt Backports
-# echo "deb http://deb.debian.org/debian/ bookworm-backports main contrib" >> /etc/apt/sources.list.d/backports.list
+#echo "deb http://deb.debian.org/debian/ bookworm-backports main contrib" >> /etc/apt/sources.list.d/backports.list
 
 # Met à jour la liste des paquets
-# apt update
+#apt update
 
 # Installe un paquet spécifique depuis Backports
 # Remplacez [NOM_DU_PAQUET] et la version de Debian si nécessaire.
-# apt install -t bookworm-backports [NOM_DU_PAQUET]
+#apt install -t bookworm-backports [NOM_DU_PAQUET]
 
 echo "--------------------------------------------------------"
 echo "Le script de post-installation est terminé."
