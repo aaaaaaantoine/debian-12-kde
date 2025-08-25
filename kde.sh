@@ -12,19 +12,18 @@ set -e
 
 # Vérification des privilèges root
 if [[ $EUID -ne 0 ]]; then
-    echo "ERREUR : Ce script doit être exécuté en tant que root. Veuillez utiliser 'sudo'." >&2
+    echo -e "\e[31mERREUR : Ce script doit être exécuté en tant que root. Veuillez utiliser 'sudo'.\e[0m" >&2
     exit 1
 fi
 
-echo "--- Démarrage du script de post-installation KDE Plasma ---"
+echo -e "\e[34m--- Démarrage du script de post-installation KDE Plasma ---\e[0m"
 
 # --- Mise à jour du système ---
-echo "Mise à jour et mise à niveau du système..."
+echo -e "\e[34mMise à jour et mise à niveau du système...\e[0m"
 apt update && apt full-upgrade -y
 
 # --- Installation des paquets principaux ---
-echo "Installation des paquets du bureau KDE Plasma..."
-# La liste est combinée en une seule commande pour plus d'efficacité
+echo -e "\e[34mInstallation des paquets du bureau KDE Plasma...\e[0m"
 apt install -y \
   akregator \
   ark \
@@ -65,16 +64,14 @@ apt install -y \
   yt-dlp
 
 # --- Configuration de la virtualisation ---
-echo "Configuration de l'utilisateur pour la virtualisation Qemu/KVM..."
-# Utilise logname pour s'assurer que le bon utilisateur est ajouté
+echo -e "\e[34mConfiguration de l'utilisateur pour la virtualisation Qemu/KVM...\e[0m"
 usermod -aG libvirt $USER
 
-echo "Activation du service de virtualisation libvirtd..."
+echo -e "\e[34mActivation du service de virtualisation libvirtd...\e[0m"
 systemctl enable --now libvirtd
 
 # --- Configuration de Flatpak ---
-# La section Flatpak a été activée
-echo "Configuration de Flatpak et ajout du dépôt Flathub..."
+echo -e "\e[34mConfiguration de Flatpak et ajout du dépôt Flathub...\e[0m"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 #==================================================
@@ -86,17 +83,17 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 #==================================================
 
 # Ajoute le dépôt Backports
-#echo "deb http://deb.debian.org/debian/ bookworm-backports main contrib" >> /etc/apt/sources.list.d/backports.list
+# echo "deb http://deb.debian.org/debian/ bookworm-backports main contrib" >> /etc/apt/sources.list.d/backports.list
 
 # Met à jour la liste des paquets
-#apt update
+# apt update
 
 # Installe un paquet spécifique depuis Backports
 # Remplacez [NOM_DU_PAQUET] et la version de Debian si nécessaire.
-#apt install -t bookworm-backports [NOM_DU_PAQUET]
+# apt install -t bookworm-backports [NOM_DU_PAQUET]
 
-echo "--------------------------------------------------------"
-echo "Le script de post-installation est terminé."
-echo "Un redémarrage est nécessaire pour que les modifications prennent effet."
-echo "--------------------------------------------------------"
+echo -e "\e[34m--------------------------------------------------------\e[0m"
+echo -e "\e[34mLe script de post-installation est terminé.\e[0m"
+echo -e "\e[34mUn redémarrage est nécessaire pour que les modifications prennent effet.\e[0m"
+echo -e "\e[34m--------------------------------------------------------\e[0m"
 exit 0
