@@ -48,7 +48,7 @@ firewall-cmd --reload
 # --- Gestion des utilisateurs ---
 echo "Ajout de l'utilisateur courant au groupe libvirt..."
 # On utilise 'logname' pour obtenir le nom de l'utilisateur qui a lancé la session.
-usermod -aG libvirt "$(logname)"
+usermod -a -G libvirt $USER
 
 echo "--------------------------------------------------------"
 echo "Le script de post-installation est terminé."
