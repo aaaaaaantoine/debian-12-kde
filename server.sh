@@ -31,6 +31,7 @@ apt install -y \
   cockpit-pcp \
   cockpit-podman \
   curl \
+  fail2ban \
   spice-html5 \
   rsync \
   firewalld
