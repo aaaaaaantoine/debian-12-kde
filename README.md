@@ -105,6 +105,7 @@ Bridge=br0
 ## Activer et redémarrer le service
 ```sh
 sudo systemctl enable --now systemd-networkd
+sudo systemctl disable --now NetworkManager
 ```
 
 Pour vérifier l'état du pont, utilisez networkctl status.
