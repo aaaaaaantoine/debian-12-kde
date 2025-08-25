@@ -19,8 +19,7 @@ Chaque script automatise l'installation d'une sélection de paquets et configure
 Assurez-vous que le paquet `curl` est installé sur votre système, car il est nécessaire pour lancer les scripts directement depuis votre terminal.
 
 ```sh
-sudo apt update
-sudo apt install -y curl
+sudo apt update && sudo apt install -y curl
 ```
 
 ## Utilisation
