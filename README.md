@@ -1,4 +1,10 @@
-# Configuration de Debian - Post-installation
+<div align="center">
+ 
+  ![Licence](https://img.shields.io/badge/licence-GPL--3.0-blue) ![Markdown](https://img.shields.io/badge/Format-Markdown-000000?logo=markdown&logoColor=white) ![Bash](https://img.shields.io/badge/langue-Bash-4EAA25?style=flat&logo=gnubash&logoColor=white) ![Version](https://img.shields.io/badge/version-1.0-informational) ![Debian 12](https://img.shields.io/badge/OS-Debian%2012%20(Bookworm)-A80030?logo=debian&logoColor=white) ![Debian 13](https://img.shields.io/badge/OS-Debian%2013%20(Trixie)-A80030?logo=debian&logoColor=white)
+  
+</div>
+
+# Debian Post-installation
 
 Un ensemble de scripts pour automatiser la configuration de Debian 12 (Bookworm) et Debian 13 (Trixie).
 
