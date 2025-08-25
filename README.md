@@ -16,9 +16,9 @@ Chaque script automatise l'installation d'une sélection de paquets et configure
 
 ## Scripts disponibles
 
-* `gnome.sh` : Configure un environnement de bureau GNOME complet avec des paquets utilitaires populaires.
-* `kde.sh` : Installe et configure un bureau KDE Plasma avec un ensemble d'applications courantes.
-* `server.sh` : Met en place un serveur minimal et prêt à l'emploi avec l'interface d'administration Web Cockpit.
+* [gnome.sh](https://github.com/aaaaaaantoine/debian-post-install/blob/main/gnome.sh) : Configure un environnement de bureau GNOME complet avec des paquets utilitaires populaires.
+* [kde.sh](https://github.com/aaaaaaantoine/debian-post-install/blob/main/kde.sh) : Installe et configure un bureau KDE Plasma avec un ensemble d'applications courantes.
+* [server.sh](https://github.com/aaaaaaantoine/debian-post-install/blob/main/server.sh) : Met en place un serveur minimal et prêt à l'emploi avec l'interface d'administration Web Cockpit.
 
 ## Dépendances
 
