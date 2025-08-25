@@ -83,9 +83,9 @@ Ajoutez le contenu suivant, en adaptant les valeurs à votre réseau local :
 Name=br0
 
 [Network]
-Address=192.168.1.50/24  # Adresse IP statique de votre serveur
-Gateway=192.168.1.1      # Passerelle (adresse de votre box)
-DNS=192.168.1.1          # Serveur DNS
+Address=192.168.1.50/24
+Gateway=192.168.1.1
+DNS=192.168.1.1
 ```
 
 ## Connecter l'interface physique au pont
@@ -96,7 +96,7 @@ sudo nano /etc/systemd/network/20-eth0.network
 Ajoutez le contenu suivant, en remplaçant enp1s0 par le nom de votre interface réseau réelle :
 ```
 [Match]
-Name=enp1s0  # Nom de votre interface physique (ex: enp1s0, eth0, ens33)
+Name=enp1s0
 
 [Network]
 Bridge=br0
