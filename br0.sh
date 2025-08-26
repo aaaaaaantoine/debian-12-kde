@@ -4,7 +4,7 @@
 # Script de création du pont réseau br0
 #--------------------------------------------------
 # Automatise l'installation et la configuration
-# du pont réseau br0 pour le homelab Debian 13
+# du pont réseau br0 pour Debian 13 Trixie
 #==================================================
 
 # Règle d'or : le script s'arrête si une commande échoue
@@ -18,7 +18,7 @@ fi
 
 echo -e "\e[34m--- Démarrage du script de création du pont réseau br0 ---\e[0m"
 
-# --- Détecte automatiquement l'interface physique ---
+# --- Détecte automatiquement l'interface physique utilisée ---
 PHYSICAL_INTERFACE=$(ip route get 8.8.8.8 | awk '{print $5}')
 echo "Interface physique détectée : $PHYSICAL_INTERFACE"
 
