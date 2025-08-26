@@ -1,5 +1,6 @@
-# Debian Post-installation
 <div align="center">
+
+ # Debian Post-installation
  
   ![Licence](https://img.shields.io/badge/licence-GPL--3.0-blue) ![Markdown](https://img.shields.io/badge/Format-Markdown-000000?logo=markdown&logoColor=white) ![Bash](https://img.shields.io/badge/langue-Bash-4EAA25?style=flat&logo=gnubash&logoColor=white) ![Version](https://img.shields.io/badge/version-1.0-informational) ![Debian 12](https://img.shields.io/badge/OS-Debian%2012%20(Bookworm)-A80030?logo=debian&logoColor=white) ![Debian 13](https://img.shields.io/badge/OS-Debian%2013%20(Trixie)-A80030?logo=debian&logoColor=white)
   
@@ -50,65 +51,20 @@ sudo bash ~/postinstall.sh
 
 # Configuration avancée : le pont réseau
 
-Si vous souhaitez créer un pont réseau (bridge) pour vos machines virtuelles avec systemd-networkd, vous pouvez suivre ces instructions pour une configuration manuelle.
+**Section modifiée**
 
-**IMPORTANT : Sauvegardez d'abord votre configuration réseau existante.**
+Je mets dorénavant un script pour créer un pont réseau [br0.sh](br0.sh)
 
-```sh
-# Sauvegarder la configuration d'interfaces.d (si elle existe)
-sudo mv /etc/network/interfaces /etc/network/interfaces.save
-sudo mv /etc/network/interfaces.d /etc/network/interfaces.d.save
-```
-```sh
-# Créer le pont réseau
-sudo nano /etc/systemd/network/10-br0.netdev
-```
+Un pont réseau sur Debian agit comme un commutateur virtuel. Il vous permet de connecter plusieurs interfaces réseau (physiques ou virtuelles) en une seule interface logique. C'est essentiel pour la virtualisation, car cela permet à vos machines virtuelles (VM) de partager la connexion réseau physique de l'hôte.
 
-Ajoutez le contenu suivant :
+La configuration se fait principalement via trois fichiers :
 
-```sh
-[NetDev]
-Name=br0
-Kind=bridge
-```
+10-br0.netdev : Ce fichier définit le pont br0 comme un nouveau périphérique réseau de type "bridge" pour le système. C'est l'étape de création de votre commutateur virtuel.
 
-## Configurer l'adresse IP du pont réseau
-```sh
-sudo nano /etc/systemd/network/10-br0.network
-```
+10-br0.network : Ce fichier attribue une adresse IP, une passerelle (gateway) et des serveurs DNS au pont br0. C'est ce qui permet à votre machine hôte de communiquer sur le réseau en utilisant ce pont.
 
-Ajoutez le contenu suivant, en adaptant les valeurs à votre réseau local :
-```sh
-[Match]
-Name=br0
+20-enp1s0.network : Ce fichier (le nom varie selon votre interface physique) sert à relier votre carte réseau physique au pont br0. Il fait de votre carte physique un port du commutateur virtuel. De cette façon, tout le trafic qui passe par votre carte réseau est redirigé vers le pont, ce qui permet à vos machines virtuelles de partager la connexion.
 
-[Network]
-Address=192.168.1.50/24
-Gateway=192.168.1.1
-DNS=192.168.1.1
-```
+L'ensemble de ces fichiers est géré par le service systemd-networkd. En activant et en démarrant ce service, vous vous assurez que votre pont réseau est automatiquement configuré et opérationnel au démarrage du système. Il est aussi crucial de désactiver NetworkManager pour éviter tout conflit.
 
-## Connecter l'interface physique au pont
-```sh
-sudo nano /etc/systemd/network/20-eth0.network
-```
-
-Ajoutez le contenu suivant, en remplaçant enp1s0 par le nom de votre interface réseau réelle :
-```
-[Match]
-Name=enp1s0
-
-[Network]
-Bridge=br0
-```
-
-## Activer et redémarrer le service
-```sh
-sudo systemctl enable --now systemd-networkd
-sudo systemctl disable --now NetworkManager
-```
-
-Pour vérifier l'état du pont, utilisez networkctl status.
-```sh
-networkctl status
-```
+En résumé, cette configuration transforme votre machine hôte en un hub central qui donne l'accès au réseau à toutes les machines virtuelles qui y sont connectées.
