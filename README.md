@@ -53,7 +53,7 @@ sudo bash ~/postinstall.sh
 
 **Section modifiée**
 
-Je mets dorénavant un script pour créer un pont réseau [br0.sh](br0.sh)
+Je mets dorénavant un script pour créer un pont réseau nommé : [br0](br0.sh)
 
 Un pont réseau sur Debian agit comme un commutateur virtuel. Il vous permet de connecter plusieurs interfaces réseau (physiques ou virtuelles) en une seule interface logique. C'est essentiel pour la virtualisation, car cela permet à vos machines virtuelles (VM) de partager la connexion réseau physique de l'hôte.
 
