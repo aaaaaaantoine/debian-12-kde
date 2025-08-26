@@ -2,7 +2,7 @@
 
  # Debian Post-installation
  
-  ![Licence](https://img.shields.io/badge/licence-GPL--3.0-blue) ![Markdown](https://img.shields.io/badge/Format-Markdown-000000?logo=markdown&logoColor=white) ![Bash](https://img.shields.io/badge/langue-Bash-4EAA25?style=flat&logo=gnubash&logoColor=white) ![Version](https://img.shields.io/badge/version-1.0-informational) ![Debian 12](https://img.shields.io/badge/OS-Debian%2012%20(Bookworm)-A80030?logo=debian&logoColor=white) ![Debian 13](https://img.shields.io/badge/OS-Debian%2013%20(Trixie)-A80030?logo=debian&logoColor=white)
+  ![Licence](https://img.shields.io/badge/licence-GPL--3.0-blue) ![Markdown](https://img.shields.io/badge/Format-Markdown-000000?logo=markdown&logoColor=white) ![Bash](https://img.shields.io/badge/langue-Bash-4EAA25?style=flat&logo=gnubash&logoColor=white) ![Version](https://img.shields.io/badge/version-1.0.1-informational) ![Debian 12](https://img.shields.io/badge/OS-Debian%2012%20(Bookworm)-A80030?logo=debian&logoColor=white) ![Debian 13](https://img.shields.io/badge/OS-Debian%2013%20(Trixie)-A80030?logo=debian&logoColor=white)
   
 </div>
 
