@@ -27,12 +27,14 @@ echo -e "\e[34mInstallation des paquets du bureau KDE Plasma...\e[0m"
 apt install -y \
   akregator \
   ark \
+  aspell-fr \
   calligra \
   dolphin \
   dragonplayer \
   elisa \
   falkon \
   gwenview \
+  hunspell-fr \
   kaccounts-integration \
   kaccounts-providers \
   kaddressbook \
