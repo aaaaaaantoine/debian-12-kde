@@ -76,6 +76,11 @@ systemctl enable --now libvirtd
 echo -e "\e[34mConfiguration de Flatpak et ajout du dépôt Flathub...\e[0m"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+# --- Modification Grub ---
+echo -e "\e[34mSuppression du fond d'écran de Grub...\e[0m"
+chmod -x /etc/grub.d/05_debian_theme
+update-grub
+
 #==================================================
 # INSTALLATION DE PAQUETS DEPUIS DEBIAN BACKPORTS
 #
