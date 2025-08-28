@@ -33,6 +33,7 @@ apt install -y \
   dragonplayer \
   elisa \
   falkon \
+  filelight \
   gwenview \
   hunspell-fr \
   isoimagewriter \
@@ -54,6 +55,7 @@ apt install -y \
   konsole \
   kontact \
   konversation \
+  kpat \
   krdc \
   krita \
   ktorrent \
