@@ -35,6 +35,7 @@ apt install -y \
   falkon \
   gwenview \
   hunspell-fr \
+  isoimagewriter \
   kaccounts-integration \
   kaccounts-providers \
   kaddressbook \
@@ -46,6 +47,7 @@ apt install -y \
   kexi \
   kde-plasma-desktop \
   kdepim-addons \
+  kid3 \
   kmail \
   kodi \
   korganizer \
@@ -55,6 +57,7 @@ apt install -y \
   krdc \
   krita \
   ktorrent \
+  kwave \
   okular \
   partitionmanager \
   plasma-firewall \
