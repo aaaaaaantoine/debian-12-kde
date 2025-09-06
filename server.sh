@@ -1,58 +1,87 @@
 #!/bin/bash
-
 #==================================================
 # Script de post-installation Debian - Serveur
 #--------------------------------------------------
 # Automatise l'installation et la configuration
 # d'un serveur Debian minimal avec Cockpit.
+# Compatible Debian 12/13 (Bookworm / Trixie)
 #==================================================
 
-# Règle d'or : le script s'arrête si une commande échoue
-set -e
+set -euo pipefail
 
-# Vérification des privilèges root
+# --- Couleurs ---
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+NC="\e[0m"
+
+# --- Vérification root ---
 if [[ $EUID -ne 0 ]]; then
-    echo -e "\e[31mERREUR : Ce script doit être exécuté en tant que root. Veuillez utiliser 'sudo'.\e[0m" >&2
+    echo -e "${RED}ERREUR : Ce script doit être exécuté en tant que root (sudo).${NC}" >&2
     exit 1
 fi
 
-echo -e "\e[34m--- Démarrage du script d'installation et de configuration ---\e[0m"
+echo -e "${BLUE}--- Démarrage du script d'installation et de configuration ---${NC}"
 
 # --- Mise à jour du système ---
-echo -e "\e[34mMise à jour et mise à niveau du système...\e[0m"
-apt update && apt full-upgrade -y
+echo -e "${BLUE}Mise à jour et mise à niveau du système...${NC}"
+apt update -y && apt full-upgrade -y
 
-# --- Installation des utilitaires et services ---
-echo -e "\e[34mInstallation des utilitaires de base...\e[0m"
-apt install -y \
-  cockpit \
-  cockpit-machines \
-  cockpit-packagekit \
-  cockpit-pcp \
-  cockpit-podman \
-  curl \
-  fail2ban \
-  spice-html5 \
-  rsync \
-  firewalld
+# --- Vérification connexion internet ---
+if ! ping -c 1 deb.debian.org &>/dev/null; then
+    echo -e "${RED}ERREUR : Pas de connexion Internet. Vérifiez le réseau.${NC}" >&2
+    exit 1
+fi
 
-# --- Configuration des services ---
-echo -e "\e[34mActivation et démarrage des services...\e[0m"
+# --- Paquets à installer ---
+PACKAGES=(
+    cockpit
+    cockpit-machines
+    cockpit-packagekit
+    cockpit-pcp
+    cockpit-podman
+    curl
+    fail2ban
+    spice-html5
+    rsync
+    firewalld
+)
+
+echo -e "${BLUE}Installation des utilitaires de base...${NC}"
+apt install -y "${PACKAGES[@]}"
+
+# --- Activation des services ---
+echo -e "${BLUE}Activation et démarrage des services...${NC}"
 systemctl enable --now cockpit.socket
 systemctl enable --now firewalld
 
-# --- Configuration du pare-feu ---
-echo -e "\e[34mConfiguration du pare-feu pour le service Cockpit...\e[0m"
-firewall-cmd --add-port=9090/tcp --permanent
-firewall-cmd --reload
+# --- Pare-feu ---
+echo -e "${BLUE}Configuration du pare-feu...${NC}"
+if command -v firewall-cmd >/dev/null 2>&1; then
+    firewall-cmd --add-port=9090/tcp --permanent
+    firewall-cmd --reload
+else
+    echo -e "${YELLOW}Attention : firewalld n'est pas disponible.${NC}"
+fi
 
-# --- Gestion des utilisateurs ---
-echo -e "\e[34mAjout de l'utilisateur courant au groupe libvirt...\e[0m"
-# On utilise 'logname' pour obtenir le nom de l'utilisateur qui a lancé la session.
-usermod -a -G libvirt $USER
+# --- Ajout de l’utilisateur courant au groupe libvirt ---
+CURRENT_USER=$(logname 2>/dev/null || echo "${SUDO_USER:-$USER}")
 
-echo -e "\e[34m--------------------------------------------------------\e[0m"
-echo -e "\e[34mLe script de post-installation est terminé.\e[0m"
-echo -e "\e[34mUn redémarrage est nécessaire pour que les modifications prennent effet.\e[0m"
-echo -e "\e[34m--------------------------------------------------------\e[0m"
-exit 0
+if id "$CURRENT_USER" &>/dev/null; then
+    echo -e "${BLUE}Ajout de l'utilisateur ${CURRENT_USER} au groupe libvirt...${NC}"
+    usermod -a -G libvirt "$CURRENT_USER"
+else
+    echo -e "${YELLOW}Utilisateur courant introuvable, étape ignorée.${NC}"
+fi
+
+# --- Nettoyage ---
+echo -e "${BLUE}Nettoyage des paquets inutiles...${NC}"
+apt autoremove -y && apt clean
+
+# --- Résumé ---
+echo -e "${BLUE}--------------------------------------------------------${NC}"
+echo -e "${GREEN}Installation terminée avec succès.${NC}"
+echo -e "${YELLOW}Accès Cockpit : https://$(hostname -I | awk '{print $1}'):9090${NC}"
+echo -e "${YELLOW}Un redémarrage est recommandé pour finaliser la configuration.${NC}"
+echo -e "${BLUE}--------------------------------------------------------${NC}"
