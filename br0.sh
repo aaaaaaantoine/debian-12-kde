@@ -46,6 +46,8 @@ BACKUP_DIR="/etc/systemd/network/backup_$(date +%F_%H-%M-%S)"
 mkdir -p "$BACKUP_DIR"
 cp /etc/systemd/network/*.network /etc/systemd/network/*.netdev "$BACKUP_DIR" 2>/dev/null || true
 echo -e "${GREEN}Sauvegarde effectuée dans $BACKUP_DIR${NC}"
+mv /etc/network/interfaces /etc/network/interfaces.bak
+mv /etc/network/interfaces.d /etc/network/interfaces.d.bak
 
 # --- Création de la config ---
 cat << EOF > /etc/systemd/network/10-br0.netdev
